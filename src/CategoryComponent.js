@@ -3,10 +3,12 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4"; // this is to create the unique id's
 import { render } from "@testing-library/react";
 
-function CategoriesComponent({columnId, column, index}) {
+function CategoriesComponent({categoryId, category, index}) {
+
+    // const jobs = column
 
     return (
-        <Droppable droppableId={columnId}>
+        <Droppable droppableId={categoryId}>
             {(provided, snapshot) => {
                 return (
                     <div
@@ -18,6 +20,7 @@ function CategoriesComponent({columnId, column, index}) {
                             width: 250,
                             minHeight: 500
                         }}
+
                     >
                         
                     </div>

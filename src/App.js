@@ -3,7 +3,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4"; // this is to create the unique id's
 import CategoriesComponent from "./CategoriesComponent"
 
-const itemsFromBackend = [
+const jobsFromBackend = [
   { id: uuid(), content: "First task" },
   { id: uuid(), content: "Second task" },
   { id: uuid(), content: "Third task" },
@@ -16,10 +16,10 @@ const itemsFromBackend = [
   { id: uuid(), content: "Fifth task" }
 ];
 
-const columnsFromBackend = {
+const categoriesFromBackend = {
   [uuid()]: {
     name: "Requested",
-    items: itemsFromBackend
+    items: jobsFromBackend
   },
   [uuid()]: {
     name: "To do",
@@ -35,12 +35,8 @@ const columnsFromBackend = {
   }
 };
 
-  console.log("uuid", uuid())
-  console.log("type", typeof uuid())
-
-
 function App() {
-  const [columns, setColumns] = useState(columnsFromBackend);
+  const [categories, setColumns] = useState(categoriesFromBackend);
   
   const onDragEnd = (result => {
       console.log(result)
@@ -54,7 +50,7 @@ function App() {
          * each droppable will have it's own key and that has to be unique as well
         */} 
 
-          <CategoriesComponent columns={columns}/>
+          <CategoriesComponent categories={categories}/>
         </DragDropContext>
 
     </div>

@@ -4,9 +4,11 @@ import uuid from "uuid/v4"; // this is to create the unique id's
 import { render } from "@testing-library/react";
 import CategoryComponent from "./CategoryComponent"
 
-function CategoriesComponent({columns}) {
+function CategoriesComponent({categories}) {
 
-    const displayColumns = Object.entries(columns).map(([columnId, column], index) => {
+    const displayCategories = Object.entries(categories).map(([categoryId, category], index) => { 
+        // you can iterate through each object 
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
             return (
                 <div
                     style={{
@@ -14,13 +16,13 @@ function CategoriesComponent({columns}) {
                         flexDirection: "column",
                         alignItems: "center"
                     }}
-                    key={columnId}
+                    key={categoryId}
                 >
-                    <h2>{column.name}</h2>
+                    <h2>{category.name}</h2>
                     <div style={{ margin: 8}}>
                         <CategoryComponent 
-                            columnId={columnId}
-                            column={column}
+                            columnId={categoryId}
+                            category={category}
                             index={index}
                         />
                     </div>
@@ -31,7 +33,7 @@ function CategoriesComponent({columns}) {
 
     return (
         <div>
-            {displayColumns}
+            {displayCategories}
         </div>
        
     )
