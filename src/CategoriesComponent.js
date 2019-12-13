@@ -21,7 +21,7 @@ function CategoriesComponent({categories}) {
                     <h2>{category.name}</h2>
                     <div style={{ margin: 8}}>
                         <CategoryComponent 
-                            columnId={categoryId}
+                            categoryId={categoryId}
                             category={category}
                             index={index}
                         />

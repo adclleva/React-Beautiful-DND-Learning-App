@@ -19,24 +19,24 @@ const jobsFromBackend = [
 const categoriesFromBackend = {
   [uuid()]: {
     name: "Requested",
-    items: jobsFromBackend
+    jobs: jobsFromBackend
   },
   [uuid()]: {
     name: "To do",
-    items: []
+    jobs: []
   },
   [uuid()]: {
     name: "In Progress",
-    items: []
+    jobs: []
   },
   [uuid()]: {
     name: "Done",
-    items: []
+    jobs: []
   }
 };
 
 function App() {
-  const [categories, setColumns] = useState(categoriesFromBackend);
+  const [categories, setCategories] = useState(categoriesFromBackend);
   
   const onDragEnd = (result => {
       console.log(result)
@@ -46,7 +46,7 @@ function App() {
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
       <DragDropContext onDragEnd={onDragEnd}> {/* this will have our children in it*/}
-        {/** we use entries becuase we use the key of the columns from the backend and the values from the font end 
+        {/** we use entries becuase we use the key of the categories from the backend and the values from the font end 
          * each droppable will have it's own key and that has to be unique as well
         */} 
 
