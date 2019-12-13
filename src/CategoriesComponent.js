@@ -6,6 +6,8 @@ import CategoryComponent from "./CategoryComponent"
 
 function CategoriesComponent({categories}) {
 
+    // we always use a key whenever we do a map
+
     const displayCategories = Object.entries(categories).map(([categoryId, category], index) => { 
         // you can iterate through each object 
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
